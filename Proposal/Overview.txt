@@ -1,0 +1,104 @@
+
+
+Overview 
+
+    Roles
+    
+        Project Lead: Robert Best
+        Backend Development: Katie Innes
+        Front End Development: Alex Konnaris 
+        CSS/Styling: Jordan Graham
+        Login and Registration: Brittany Lystrup & Robert Best
+
+    *Note* I totally forgot to put in a logout button D :! My thought is to put it next to the home button.
+
+    Backend 
+
+        Routes-Backend
+
+            app.get('/api/applications', ApplicationController.findAllApplications);
+            app.get('/api/application/:id', ApplicationController.findOneApplication);
+            app.patch('/api/application/:id', ApplicationController.updateApplicationById);
+            app.post('/api/application', ApplicationController.createNewApplication);
+            app.delete('/api/application/:id', ApplicationController.deleteAnExistingApplication);
+
+        Model-Application (Type is String unless otherwise noted)
+
+            jobTitle- Required must not be null, over 3 characters 
+            company- Required must not be null, over 3 characters 
+            location- Required must not be null, over 3 characters 
+            salary- Not Required Type: Number
+            applicationLink- Required must not be null, over 3 characters 
+            jobDescription- Required must not be null, over 3 characters 
+            interview- Required, enum "Yes", "No" (Enum-must be of one of the listed values)
+            interviewer- Not Required
+            overview- Not Required
+            technicalInterviewer- Not Required
+            technicalOverview- Not Required
+            userName- Not Required (will be changed once login and registration is finalized)
+            userId- Not required (will be changed once login and registration is finalized)
+            
+
+
+    Frontend
+
+        Routes-Frontend
+            
+            <Route element={<LoginReg/>}path="/" /> 
+            <Route element={<Dashboard/>}path="/dashboard" /> 
+            <Route element={<Create/>}path="/application" /> 
+            <Route element={<View/>}path="/application/:id" /> 
+            <Route element={<Edit/>}path="/application/edit/:id" /> 
+
+
+        Login And Registration - Brittany(Build-Primary), Robert Best(Build-Secondary), Jordan (Styling)
+
+            Login and registration will primarily be handled by Brittany, with Jordan styling the login and registration page. 
+            Registration and login will be sent to the Dashboard
+
+            Brittany will be in charge of ensuring that the pages only render if the user is logged in. If they are not logged in they will be returned to the login and registration page.As well as ensuring that the edit page will only render if the current user who is logged in is the creator of the application. 
+
+
+        Dashboard - Alex(Build), Jordan (Styling),  
+
+            The dashboard is fairly straight forward, The Welcome {firstName} element will be handled by the login and registration team. It is requested that a welcome place holder is built by Alex, and positioned correctly by Jordan, I would appreciate it if that could be done on all pages. 
+
+            Links
+                Add an Application: to create page
+                View Job Listing: to view page
+
+        Create Page - Alex(Build), Jordan (Styling) 
+
+            Render all form data from the model. We discussed using a drop down or check box for the interview section, holding yes or no, which would cause the rest of the form data to render. My thought is using a ternary operator for conditional rendering based on the state value for interview, to show the rest of the form data. Making a hidden input for the userName and userId would be greatly appreciated. A placeholder value can be used for both, such as test for user name, and 0 for user id in a use state object. 
+
+            Errors 
+                Listed above each incorrect section. Anything from interviewer down is not required and will not require error messages. 
+
+            Links 
+                Home: goes to Dashboard.  
+                Submit Application: goes to Dashboard
+
+        
+        View Page - Alex(Build), Jordan (Styling) 
+
+            Render all form data from the model. Create edit button. 
+
+            Login and registration team will take care of conditional rendering for the edit button. 
+
+            Links 
+                Home: goes to dashboard.  
+                Edit Application: goes to Edit Page. 
+
+
+        Edit Page - Alex(Build), Jordan (Styling) 
+
+            Render all form data from the model. Use conditional operator for rendering the rest of the form. Delete Button 
+
+            Login and Registration team will take care of not allowing access to this page unless the user _id is === to application.userId
+
+            Errors 
+                Listed above each incorrect section. Anything from interviewer down is not required and will not require error messages. 
+
+            Links 
+                Home: goes to Dashboard.  
+                Edit Application: goes to View Page 
