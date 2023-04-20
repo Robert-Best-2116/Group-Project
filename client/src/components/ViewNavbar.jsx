@@ -7,9 +7,9 @@ const ViewNavbar = () => {
             {/* MAIN NAVBAR */}
             <div className="md:w-3/4 md:flex md:items-center md:justify-between py-4 mb-8">
                 <div className="min-w-0 flex-1">
-                    <h2 className="text-3xl font-bold leading-7 text-gray-900 sm:truncate sm:text-4xl sm:tracking-tight">
+                <Link to={'/dashboard'}><h2 className="text-3xl font-bold leading-7 text-gray-900 sm:truncate sm:text-4xl sm:tracking-tight cursor-pointer">
                         Application Tracker
-                    </h2>
+                    </h2></Link>
                 </div>
 
 

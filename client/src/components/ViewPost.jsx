@@ -11,7 +11,8 @@ const ViewPost = () => {
 
            {/* JOB DETAIL CARD */}
            {/* All the <dd> tags with the {} is where the props for the DB info will go */}
-           <div className='w-3/4'>
+           {/* Example: <dd>{jobTitle}</dd> */}
+           <div className='w-3/4 mb-8'>
                 <div className="mt-6 border-t border-gray-100 px-8">
                     <dl className="divide-y divide-gray-100">
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -83,9 +84,12 @@ const ViewPost = () => {
                     </dl>
                 </div>
             </div>
-            <div className='w-3/4 pl-8 mt-8'>
-                <Link to={'/dashboard'}><button type="button" className="transition ease-in-out delay-100 inline-flex items-center rounded-md bg-[#f1c40faf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#f1c40f] hover:-translate-y-1 hover:scale-110 mb-12">Edit Application</button></Link>
+
+            <div className='w-3/4 pl-8'>
+                {/* Edit Button will need ID Implemented in */}
+                <Link to={'/edit'}><button type="button" className="transition ease-in-out delay-100 inline-flex items-center rounded-md bg-[#f1c40faf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#f1c40f] hover:-translate-y-1 hover:scale-110 mb-12">Edit Application</button></Link>
             </div>
+
         </div>
     )
 }
