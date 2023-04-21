@@ -10,10 +10,11 @@ function App() {
     <div className="App">
 
       <Routes>
-
+        {/* DASHBOARD(Home) */}
         <Route path='/dashboard' element={<Dashboard />} />
-        {/* Will need to implement ID in Route and on Button in card in Dashboard page*/}
-        <Route path='/view' element={<ViewPost />} />
+        {/*VIEW POST BY ID*/}
+        <Route path='/api/application/:id' element={<ViewPost />} />
+        {/* Need to add page routes for EDIT & CREATE: */}
 
       </Routes>
      
