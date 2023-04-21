@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const HomeNavbar = () => {
+
     return (
         <div className="w-screen flex items-center justify-start flex-col">
             {/* MAIN NAVBAR */}
