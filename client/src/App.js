@@ -1,9 +1,11 @@
 // import './App.css';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import ViewPost from "./components/ViewPost";
 import { useState } from "react";
 import CreatePost from "./components/CreatePost";
+
 
 function App() {
   // STATE VALUE TO HOLD ALL APPLICATIONS - Alex
@@ -12,6 +14,7 @@ function App() {
 
   return (
     <Router>
+
       <div className="App">
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -29,6 +32,7 @@ function App() {
           />
         </Routes>
       </div>
+
     </Router>
   );
 }
