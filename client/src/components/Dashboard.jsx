@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios.get('/api/applications')
+        axios.get('http://localhost:8000/api/applications')
         .then((res) => { 
             console.log(res)
             setPosts(res.data)
@@ -51,7 +51,7 @@ const Dashboard = () => {
                             <span className='font-bold'> 04/19/2023</span></p> */}
 
                         {/* Post ID needs to be implemented in ✅ */}
-                        <Link to={`/api/application/${post._id}`}><p className='text-[1.2rem] text-[#3498db] hover:underline'>View Job Listing</p></Link>
+                        <Link to={`/application/${post._id}`}><p className='text-[1.2rem] text-[#3498db] hover:underline'>View Job Listing</p></Link>
                     </div>
                 </div>
                 )

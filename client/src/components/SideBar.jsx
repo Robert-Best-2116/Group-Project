@@ -78,7 +78,7 @@ const Sidebar = () => {
                             <Link to={'/dashboard'}>
                     <li className='cursor-pointer bg-gray-100 active:bg-gray-100 text-[#3498db] py-2 pl-2 rounded flex items-center mb-2'><HomeIcon className='h-4 w-4 mr-2'/>Dashboard</li>
                     </Link>
-                   <Link to={'/api/application'}>
+                   <Link to={'/application'}>
                     <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 pl-2 rounded flex items-center'><DocumentPlusIcon className='h-4 w-4 mr-2'/> Add an Application</li>
                     </Link>
                           </ul>
@@ -127,7 +127,7 @@ const Sidebar = () => {
                   <Link to={'/dashboard'}>
                     <li className='cursor-pointer bg-gray-100 active:bg-gray-100 text-[#3498db] py-2 rounded flex items-center pl-2 mb-2'><HomeIcon className='h-4 w-4 mr-2'/>Dashboard</li>
                     </Link>
-                   <Link to={'/api/application'}>
+                   <Link to={'/application'}>
                     <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 rounded flex items-center pl-2'><DocumentPlusIcon className='h-4 w-4 mr-2'/> Add an Application</li>
                     </Link>
                   </ul>

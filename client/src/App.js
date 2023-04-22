@@ -3,6 +3,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import ViewPost from './components/ViewPost';
+import Create from './components/Create';
 
 function App() {
   return (
@@ -10,12 +11,14 @@ function App() {
     <div className="App">
 
       <Routes>
+        {/* Need to add page routes for LOGIN/REGISTRATION */}
         {/* DASHBOARD(Home) */}
         <Route path='/dashboard' element={<Dashboard />} />
         {/*VIEW POST BY ID*/}
-        <Route path='/api/application/:id' element={<ViewPost />} />
-        {/* Need to add page routes for EDIT & CREATE: */}
-
+        <Route path='/application/:id' element={<ViewPost />} />
+        {/* CREATE APPLICATION */}
+        <Route path='/application' element={<Create />}/>
+        {/* Need to add page routes for EDIT */}
       </Routes>
      
     </div>
