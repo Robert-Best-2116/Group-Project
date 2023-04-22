@@ -7,6 +7,7 @@ import {
   DocumentPlusIcon,
   HomeIcon,
   UserIcon,
+  UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
@@ -65,10 +66,13 @@ const Sidebar = () => {
                   </Transition.Child>
                     {/* INTERIOR OF POPOVER */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
-                    <div className="flex flex-col h-16 shrink-0 items-center mb-4">
-                        <h3 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-[1.6rem] sm:tracking-tight mb-4 mt-2">Application Tracker</h3>
+                    <div className="flex flex-col h-18 shrink-0 items-center justify-center">
+                        <h3 className="text-2xl font-light leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight my-4">Welcome, FirstName</h3>
+                      
+                        {/* Log Out button will use onClick Logout handler? */}
+                        <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-1/2">Logout</button>
+             
 
-                        <h3 className="text-xl font-light leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">Welcome, FirstName</h3>
                     </div>
                     <nav className="flex flex-1 flex-col">
                     <div className="text-xs font-semibold leading-6 text-gray-400">Pages:</div>
@@ -76,10 +80,13 @@ const Sidebar = () => {
                         <li>
                           <ul role="list" className="-mx-2 space-y-1">
                             <Link to={'/dashboard'}>
-                    <li className='cursor-pointer bg-gray-100 active:bg-gray-100 text-[#3498db] py-2 pl-2 rounded flex items-center mb-2'><HomeIcon className='h-4 w-4 mr-2'/>Dashboard</li>
+                    <li className='cursor-pointer bg-gray-100 active:bg-gray-100 text-[#27ae60] py-2 pl-2 rounded flex items-center mb-2'><HomeIcon className='h-4 w-4 mr-2'/>Dashboard</li>
                     </Link>
                    <Link to={'/application'}>
-                    <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 pl-2 rounded flex items-center'><DocumentPlusIcon className='h-4 w-4 mr-2'/> Add an Application</li>
+                    <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 pl-2 rounded flex items-center mb-2'><DocumentPlusIcon className='h-4 w-4 mr-2'/> Add an Application</li>
+                    </Link>
+                    <Link to={'/about'}>
+                    <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 pl-2 rounded flex items-center'><UserGroupIcon className='h-4 w-4 mr-2'/> About the Team</li>
                     </Link>
                           </ul>
                         </li>
@@ -92,7 +99,6 @@ const Sidebar = () => {
                     <li className='flex items-center py-2 pl-2 rounded'>
                       <UserIcon className='h-4 w-4 mr-2'/>FirstName
                     </li>
-
                   </ul>
                 </li>
                           </ul>
@@ -112,10 +118,8 @@ const Sidebar = () => {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
 
-            <div className="flex flex-col shrink-0 items-center h-auto">
-                <h3 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-[1.6rem] sm:tracking-tight mb-4 mt-2">Application Tracker</h3>
-
-                <h3 className="text-xl font-light leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">Welcome, FirstName</h3>    
+            <div className="flex shrink-0 items-center h-auto">
+                <h3 className="text-xl font-extralight leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight mt-8">Welcome, FirstName</h3>    
             </div>
 
             <nav className="flex flex-1 flex-col">
@@ -125,10 +129,13 @@ const Sidebar = () => {
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
                   <Link to={'/dashboard'}>
-                    <li className='cursor-pointer bg-gray-100 active:bg-gray-100 text-[#3498db] py-2 rounded flex items-center pl-2 mb-2'><HomeIcon className='h-4 w-4 mr-2'/>Dashboard</li>
+                    <li className='cursor-pointer bg-gray-100 active:bg-gray-100 text-[#27ae60] py-2 rounded flex items-center pl-2 mb-2'><HomeIcon className='h-4 w-4 mr-2'/>Dashboard</li>
                     </Link>
                    <Link to={'/application'}>
-                    <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 rounded flex items-center pl-2'><DocumentPlusIcon className='h-4 w-4 mr-2'/> Add an Application</li>
+                    <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 rounded flex items-center pl-2 mb-2'><DocumentPlusIcon className='h-4 w-4 mr-2'/> Add an Application</li>
+                    </Link>
+                    <Link to={'/about'}>
+                    <li className='cursor-pointer hover:bg-gray-100 active:bg-gray-100 hover:text-[#27ae60] py-2 rounded flex items-center pl-2'><UserGroupIcon className='h-4 w-4 mr-2'/> About the Team</li>
                     </Link>
                   </ul>
                 </li>
@@ -159,13 +166,13 @@ const Sidebar = () => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
 
-          <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-            <h3 className='font-bold leading-7 text-gray-900 text-[1.4rem] mb-2 text-center'>Application Tracker</h3>
-            <h3 className='font-light leading-7 text-gray-900 text-[1.1rem] text-center'>Welcome, FirstName</h3>
+          <div className="flex-1 flex items-end justify-end flex-col text-sm font-semibold leading-6 text-gray-900">
+            <img className='w-auto h-[4rem] mb-2' src="img/logo.png" alt="Logo" />
+            {/* <h3 className='font-light leading-7 text-gray-900 text-[1.1rem] text-center'>Welcome, FirstName</h3> */}
           </div>
 
           {/* Log Out button will use onClick Logout handler? */}
-          <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110">Logout</button>
+          {/* <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110">Logout</button> */}
         </div>
 
         <main className="py-10 lg:pl-72">
