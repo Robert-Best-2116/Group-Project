@@ -6,12 +6,15 @@ import ViewPost from "./components/ViewPost";
 import { useState } from "react";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
+import LoginReg from "./components/LoginReg";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          {/* LOGIN AND REG PAGE BELOW - BL */}
+          <Route path="/" element={<LoginReg />} />
           <Route path="/dashboard" element={<Dashboard />} />
           {/* Will need to implement ID in Route and on Button in card in Dashboard page*/}
           <Route path="/application/:id" element={<ViewPost />} />

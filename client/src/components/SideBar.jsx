@@ -1,6 +1,6 @@
 
 import { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -10,6 +10,7 @@ import {
   UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import axios from 'axios'
 
 
 function classNames(...classes) {
@@ -18,6 +19,18 @@ function classNames(...classes) {
 
 const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
+
+    const navigate = useNavigate();
+
+    // LOGOUT function added. Will remove cookie once logged out. - BL
+    const logout = () => {
+      axios.post('http://localhost:8000/api/users/logout', {}, {withCredentials: true})
+          .then(res => {
+              console.log(res)
+              navigate('/')
+          })
+          .catch(err => console.log(err))
+    }
 
     return (
         <>
@@ -70,7 +83,7 @@ const Sidebar = () => {
                         <h3 className="text-2xl font-light leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight my-4">Welcome, FirstName</h3>
                       
                         {/* Log Out button will use onClick Logout handler? */}
-                        <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-1/2">Logout</button>
+                        <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-1/2" onClick={logout}>Logout</button>
              
 
                     </div>
@@ -152,7 +165,7 @@ const Sidebar = () => {
 
                 <li className="mx-auto mb-2 mt-auto w-full flex items-center justify-center">
                   {/* Log Out button will use onClick Logout handler? */}
-                  <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-3/4">Logout</button>
+                  <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-3/4" onClick={logout}>Logout</button>
                 </li>
               </ul>
             </nav>
@@ -172,7 +185,7 @@ const Sidebar = () => {
           </div>
 
           {/* Log Out button will use onClick Logout handler? */}
-          {/* <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110">Logout</button> */}
+          {/* <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110" onClick={logout}>Logout</button> */}
         </div>
 
         <main className="py-10 lg:pl-72">
