@@ -4,35 +4,23 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import ViewPost from "./components/ViewPost";
 import { useState } from "react";
-import CreatePost from "./components/CreatePost";
-
+import Create from "./components/Create";
+import Edit from "./components/Edit";
 
 function App() {
-  // STATE VALUE TO HOLD ALL APPLICATIONS - Alex
-  // WILL BE USED BY CreatePost AND Dashboard - Alex
-  const [applications, setApplications] = useState([]);
-
   return (
     <Router>
-
       <div className="App">
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           {/* Will need to implement ID in Route and on Button in card in Dashboard page*/}
           <Route path="/view" element={<ViewPost />} />
           {/* CREATE APPLICATION PAGE BELOW - Alex */}
-          <Route
-            path="/create"
-            element={
-              <CreatePost
-                applications={applications}
-                setApplications={setApplications}
-              />
-            }
-          />
+          <Route path="/application" element={<Create />} />
+          {/* EDIT APPLICATION PAGE BELOW - Alex */}
+          <Route path="/application/edit/:id" element={<Edit />} />
         </Routes>
       </div>
-
     </Router>
   );
 }
