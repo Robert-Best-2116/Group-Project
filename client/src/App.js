@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           {/* Will need to implement ID in Route and on Button in card in Dashboard page*/}
-          <Route path="/view" element={<ViewPost />} />
+          <Route path="/application/:id" element={<ViewPost />} />
           {/* CREATE APPLICATION PAGE BELOW - Alex */}
           <Route path="/application" element={<Create />} />
           {/* EDIT APPLICATION PAGE BELOW - Alex */}
