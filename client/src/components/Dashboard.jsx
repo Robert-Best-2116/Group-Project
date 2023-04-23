@@ -18,6 +18,7 @@ const Dashboard = () => {
 
     }, [])
 
+
     return (
         // Add flex-col back in, get rid of md: on flex, change justify to around for HomeNavbar
         <div className="w-screen h-screen md:flex md:items-center md:justify-between">
