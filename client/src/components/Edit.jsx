@@ -1,12 +1,12 @@
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-const CreatePost = (props) => {
-  // PROPS, ERRORS AND SHORTCUTS
-  const { applications, setApplications } = props;
+const Edit = () => {
+  // ERRORS AND SHORTCUTS
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const { id } = useParams();
 
   // STATE VARIABLES FOR THE FORM
   const [jobTitle, setJobTitle] = useState("");
@@ -23,12 +23,41 @@ const CreatePost = (props) => {
   const [userName, setUserName] = useState("TEST");
   const [userId, setUserId] = useState(12345);
 
-  // userName and userId HIDDEN INPUTS WILL BE NEEDED
+  // DELETE METHOD
+  const deleteApplication = (id) => {
+    axios
+      .delete(`http://localhost:8000/api/application/${id}`)
+      .then((res) => {
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
 
-  const onSubmitHandler = (e) => {
+  // GET REQUEST FOR PRE FILLED FORM
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/application/${id}`)
+      .then((res) => {
+        setJobTitle(res.data.jobTitle);
+        setCompany(res.data.company);
+        setLocation(res.data.location);
+        setSalary(res.data.salary);
+        setApplicationLink(res.data.applicationLink);
+        setJobDescription(res.data.jobDescription);
+        setInterview(res.data.interview);
+        setInterviewer(res.data.interviewer);
+        setOverview(res.data.overview);
+        setTechnicalInterviewer(res.data.technicalInterviewer);
+        setTechnicalOverview(res.data.technicalOverview);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  // UPDATE METHOD
+  const update = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/application", {
+      .patch(`http://localhost:8000/api/application/${id}`, {
         jobTitle,
         company,
         location,
@@ -44,16 +73,15 @@ const CreatePost = (props) => {
         userId,
       })
       .then((res) => {
-        // console.log("then");
-        console.log(res.data);
-        // navigate(`/dashboard`);
+        console.log(res);
+        navigate(`/application/${id}`);
       })
       .catch((err) => {
-        // console.log("theeeeeen");
         console.log(err);
         setErrors(err.response.data.err.errors);
       });
   };
+
   return (
     <div>
       <div>
@@ -61,10 +89,15 @@ const CreatePost = (props) => {
         <p>Welcome {/* INSERT USER NAME HERE*/}</p>
       </div>
       <div>
-        <p>New Application</p>
+        <p>Edit Application</p>
         <Link to="/dashboard">Home</Link>
       </div>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={update}>
+        {errors.jobTitle ? (
+          <p style={{ color: "red" }}>{errors.jobTitle.message}</p>
+        ) : (
+          ""
+        )}
         <p>
           <label>Job Title:</label>
           <input
@@ -73,6 +106,11 @@ const CreatePost = (props) => {
             onChange={(e) => setJobTitle(e.target.value)}
           />
         </p>
+        {errors.company ? (
+          <p style={{ color: "red" }}>{errors.company.message}</p>
+        ) : (
+          ""
+        )}
         <p>
           <label>Company:</label>
           <input
@@ -81,6 +119,11 @@ const CreatePost = (props) => {
             onChange={(e) => setCompany(e.target.value)}
           />
         </p>
+        {errors.location ? (
+          <p style={{ color: "red" }}>{errors.location.message}</p>
+        ) : (
+          ""
+        )}
         <p>
           <label>Location:</label>
           <input
@@ -97,6 +140,11 @@ const CreatePost = (props) => {
             onChange={(e) => setSalary(e.target.value)}
           />
         </p>
+        {errors.applicationLink ? (
+          <p style={{ color: "red" }}>{errors.applicationLink.message}</p>
+        ) : (
+          ""
+        )}
         <p>
           <label>Application Link:</label>
           <input
@@ -105,6 +153,11 @@ const CreatePost = (props) => {
             onChange={(e) => setApplicationLink(e.target.value)}
           />
         </p>
+        {errors.jobDescription ? (
+          <p style={{ color: "red" }}>{errors.jobDescription.message}</p>
+        ) : (
+          ""
+        )}
         <p>
           <label>Job Description:</label>
           <input
@@ -155,10 +208,19 @@ const CreatePost = (props) => {
         </p>
         <input type="hidden" value={userName} />
         <input type="hidden" value={userId} />
-        <input type="submit" value="Submit Application" />
+        <input type="submit" value="Edit Application" />
       </form>
+      <p>
+        <Link
+          onClick={(e) => {
+            deleteApplication(id);
+          }}
+        >
+          Delete
+        </Link>
+      </p>
     </div>
   );
 };
 
-export default CreatePost;
+export default Edit;
