@@ -15,8 +15,9 @@ function App() {
         <Routes>
           {/* LOGIN AND REG PAGE BELOW - BL */}
           <Route path="/" element={<LoginReg />} />
+          {/* DASHBOARD PAGE - JG */}
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* Will need to implement ID in Route and on Button in card in Dashboard page*/}
+          {/* VIEW POST PAGE - JG */}
           <Route path="/application/:id" element={<ViewPost />} />
           {/* CREATE APPLICATION PAGE BELOW - Alex */}
           <Route path="/application" element={<Create />} />

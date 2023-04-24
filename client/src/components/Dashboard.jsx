@@ -18,7 +18,6 @@ const Dashboard = () => {
 
     }, [])
 
-
     return (
         // Add flex-col back in, get rid of md: on flex, change justify to around for HomeNavbar
         <div className="w-screen h-screen md:flex md:items-center md:justify-between">
@@ -36,6 +35,9 @@ const Dashboard = () => {
            {/* For example: <span> {firstName}</span> */}
            <div className='h-auto w-full flex items-center justify-center flex-col bg-white pt-[2rem] md:pt-[5rem] m-auto'>{/* Delete this div container for HomeNavbar */}
            {applications.map((application) => {
+                // Displays timestamp dates in correct format
+                const createdAt = new Date(application.createdAt).toLocaleDateString('en-US');
+                const updatedAt = new Date(application.updatedAt).toLocaleDateString('en-US');
                 return (
                 <div key={application._id} className="md:h-[15rem] w-[90%] md:w-3/4 ml-4 flex-col md:flex-row flex items-center justify-center border-2 rounded-md shadow-lg my-8 mr-8">
                     {/* LEFT SIDE CARD */}
@@ -51,9 +53,9 @@ const Dashboard = () => {
                     <div className="w-full md:w-1/2 h-full flex items-start justify-center flex-col pl-8 pb-4 md:pb-0">
                         {/* Use Timestamps for date section?? */}
                         <p className="mb-4 text-[1.1rem]">Date Posted: 
-                            <span className='font-bold'> {application.timestamp}</span></p>
+                            <span className='font-bold'> {createdAt}</span></p>
                         <p className="mb-4 text-[1.1rem]">Updated On: 
-                            <span className='font-bold'> {application.timestamp}</span></p>
+                            <span className='font-bold'> {updatedAt}</span></p>
 
                         {/* Post ID needs to be implemented in ✅ */}
                         <Link to={`/application/${application._id}`}><p className='text-[1.1rem] text-[#2ECC40] hover:underline'>View Job Listing</p></Link>
