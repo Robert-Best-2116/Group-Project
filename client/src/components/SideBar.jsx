@@ -27,7 +27,7 @@ const Sidebar = () => {
       axios.post('http://localhost:8000/api/users/logout', {}, {withCredentials: true})
           .then(res => {
               console.log(res)
-              navigate('/')
+              navigate('/loginreg')
           })
           .catch(err => console.log(err))
     }

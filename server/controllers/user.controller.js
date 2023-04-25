@@ -10,13 +10,13 @@ module.exports = {
         try{
             const potentialUser = await User.findOne({email: req.body.email})  //BL: Checking the database to see if the email given on the registration form already exists.
             if (potentialUser) {
-                res.status(400).json({message: "Email already exists."});
+                res.status(400).json({message: "Email already exists"});
             } //BL: If it already exists, it will cause an error and send a message to let them know.
             else {
                 const newUser = await User.create(req.body); //BL: If email doesn't already exist, creating a new User object using the form data given and saving it to a newUser variable.
                 const userToken = jwt.sign({_id:newUser.id, firstName: newUser.firstName, email:newUser.email}, secret, {expiresIn: "1d"}); //BL: Creating a new JSON web token by creating an object that represents the payload (generally the user id), using the secret key to make sure our token isn't tampered with, along with a timeline of when we want the token to expire.
                 // BL: Below code is setting a cookie to our newUser.
-                res.cookie("usertoken", userToken, {
+                res.cookie("userToken", userToken, {
                     httpOnly: true
                 }).json({message: "Success!", user: newUser});
             }
