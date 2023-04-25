@@ -25,7 +25,7 @@ const TopContainer = () => {
                 <div className="flex items-center justify-center w-full md:w-3/4 mb-2">
                   <img className="w-[5rem] h-auto" src="/img/singlelogo.png" />
                 </div>
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                <h1 className="text-4xl font-bold tracking-wide text-gray-900 sm:text-6xl">
                   Keep track of your applications and where you applied
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">

@@ -9,6 +9,7 @@ import Edit from "./components/Edit";
 import LoginReg from "./components/LoginReg";
 import Home from "./screen/Home";
 import About from "./components/About";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           {/* LOGIN AND REG PAGE BELOW - BL */}
           <Route path="/loginreg" element={<LoginReg />} />
+          {/* REGISTER ROUTE FOR MOBILE VIEW - JG */}
+          <Route path="/register" element={<Register />} />
           {/* DASHBOARD PAGE - JG */}
           <Route path="/dashboard" element={<Dashboard />} />
           {/* ABOUT PAGE - JG */}
