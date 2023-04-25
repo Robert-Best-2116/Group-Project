@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Register = () => {
     const navigate = useNavigate();
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
 
 
     // STATE VARIABLES FOR THE FORM FOR USER - BL
@@ -26,12 +26,16 @@ const Register = () => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/users/register", user, {withCredentials: true})
             .then(res => {
+                console.log("then")
                 console.log(res)
                 navigate("/dashboard")
             })
             .catch(err => {
+                console.log(user, "User.catch")
+                console.log("catch", err.response.data.errors)
                 console.log(err)
                 setErrors(err.response.data.errors)
+                console.log("errors", errors)
             })
     }
 
