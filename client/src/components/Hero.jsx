@@ -5,17 +5,17 @@ const features = [
   {
     name: 'Organize your applications',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Create a new tracking file for every application sent out and view anywhere whether on desktop or mobile.',
     icon: FolderOpenIcon,
   },
   {
     name: 'Keep application info up to date',
-    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    description: 'You have the ability to recall or update any of the details on the application at anytime and delete the application if you choose not to track it anymore.',
     icon: IdentificationIcon,
   },
   {
     name: 'Get your dream job',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+    description: 'By tracking your applications you can keep an organized log of all places you have applied to and land the job!',
     icon: HandThumbUpIcon,
   },
 ]

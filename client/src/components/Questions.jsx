@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "How was Application Tracker built",
     answer:
-      "The app was built with the MERN stack and used Tailwind CSS for styling.",
+      "The app was built with the MERN stack, used Tailwind CSS for styling, and included a number of Node packages.",
   },
   {
     question: "Who was part of the build team?",
