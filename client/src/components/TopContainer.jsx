@@ -28,9 +28,8 @@ const TopContainer = () => {
                 <h1 className="text-4xl font-bold tracking-wide text-gray-900 sm:text-6xl">
                   Keep track of your applications and where you applied
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
-                  amet fugiat veniam occaecat fugiat aliqua.
+                <p className="mt-6 text-2xl leading-8 text-gray-600">
+                  Application Tracker-We made it so you don't have to.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   {/* Link this to Login/Registration page */}
