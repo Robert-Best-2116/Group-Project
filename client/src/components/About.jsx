@@ -5,9 +5,9 @@ const team = [
     {
         name: 'Robert Best',
         role: 'Project Lead',
-        imageUrl: './img/singlelogo.png',
-        bio: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
-        bioTwo: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        imageUrl: './img/1.jpg',
+        bio: 'As Project Lead, I have to say that I am grateful to have such a quality team. Every member performed to the best of their ability, completed their contribution in a timely manner, and communicated with the group excellently. I could not have been more lucky. If you have questions about their quality of work, their drive, or dedication to the team and the task at hand, please reach out to me via LinkedIn. Everyone of them will be an asset. For my contribution as project lead, I created the initial idea, along with a detailed wireframe and text overview. Going into the specifics for naming contentions, the induvial components descriptions as well as a detailed list for front and backend routes, model names, and the assignment of roles. During the building of the application I assisted with debugging, version control, code review, and the overall networking of the team.',
+        bioTwo: 'Personally I have worked as an office manager for a small engine repair shop, a department lead for Fred Myers (Kroger) and am currently an assistant manager for WSCO Petroleum.  I greatly enjoyed working with react and having the opportunity to work with such a fine team. I am looking to continue my journey working with full stack react applications where ever a good challenge arises. ',
         linkedinUrl: 'https://www.linkedin.com/in/robert-a-best/',
         githubUrl: 'https://github.com/Robert-Best-2116',
     },
@@ -23,31 +23,31 @@ const team = [
     {
         name: 'Jordan Graham',
         role: 'CSS/Styling',
-        imageUrl: './img/singlelogo.png',
-        bio: 'Labore quos assumenda voluptas possimus id autem reiciendis culpa saepe, quaerat dignissimos. Voluptates error, veritatis perspiciatis soluta natus quidem tenetur iste ipsa!',
-        bioTwo: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        imageUrl: './img/3.png',
+        bio: 'My task in the project was to build the dashboard and view page as well as do overall styling of the application using Tailwind CSS, I also designed and styled the landing page of the application. I had prior experience working on projects as a Front-End specific developer with groups of 1-2 people, but this is my first time ever working on a project in a group of 5 people and the learning experience I gained from this project and group was outstanding.',
+        bioTwo: 'My coding journey began in January 2021, where I began to teach myself basic front-end development with Udemy and YouTube, previous to that I worked as a metal fabricator. From there I began to learn what was widely used in the industry such as React/Next.JS, Tailwind CSS, SASS, etc. Then began learning things I could offer to projects such as Three.JS and 3D Design with Blender. I would really like to find jobs where I can use my now new full-stack skill sets in either MERN or Python languages and continue learning the new and latest cool things I can apply the front-end of applications I work on.',
         linkedinUrl: 'https://www.linkedin.com/in/jgwebdev38/',
         githubUrl: 'https://github.com/jgrahamwebdev',
     },
     {
         name: 'Brittany Lystrup',
         role: 'Login and Registration',
-        imageUrl: './img/singlelogo.png',
-        bio: 'Labore quos assumenda voluptas possimus id autem reiciendis culpa saepe, quaerat dignissimos. Voluptates error, veritatis perspiciatis soluta natus quidem tenetur iste ipsa!',
-        bioTwo: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        imageUrl: './img/4.jpg',
+        bio: `I took on the login and registration piece, not really realizing how much of a task I had agreed to take on. I got to learn completely new code and libraries/dependencies, such as cookie-parser, .env, and jsonwebtoken, while also learning some familiar code but specifically for Express/Node, such as using bcrypt. My biggrest challenge of the whole taks was figuring out how to utilize the user's info within the application once they are registered/logged in (I have been coding in my dreams this past week trying to figure it out).`,
+        bioTwo: `My fun fact I always use is that I worked at an amusement park in southern California as a costume character for several summers in college, typically as Bugs Bunny or Wile E Coyote. Other than that, I have worked just about every front of house position in restaurants. And for the last 9 years, I have worked for Nodstrom Corporate, most recently as a Product Developer for Young Adult Women's Apparel. I am looking for a full time gig, either remote or hybrid, at a company that values its employees and a healthy work life balance. And also pays well so that I can actually buy a house in the Seattle market.`,
         linkedinUrl: 'https://www.linkedin.com/in/brittany-lystrup/',
         githubUrl: 'https://github.com/BLystrup',
     },
     {
         name: 'Alex Konnaris',
         role: 'Front-End Development',
-        imageUrl: './img/singlelogo.png',
+        imageUrl: './img/5.jpg',
         bio: `Based on the wireframe that Robert designed, I created a create and edit form on the front end of our project using state values and axios requests. These forms allowed us to add and edit applications in our database. I also displayed validations from the backend which were made by Katie and I made part of the form render conditionally because some of the inputs are optional.`,
         bioTwo: `I'm from NYC born and raised and I've worked in the warehouse/shipping industry for 2+ years. I discovered my passion for programming during the pandemic and I'm working towards a career in fintech because I believe I can learn more about managing money and making good investments. I hope to open a business one day but I'm also open to working in many different fields of tech that way I can meet lots of people and learn new things.`,
         linkedinUrl: 'https://www.linkedin.com/in/alexander-konnaris-6044a1220/',
         githubUrl: 'https://github.com/alexkonnaris',
     },
-  ]
+]
 
 const About = () => {
     return (
@@ -72,6 +72,7 @@ const About = () => {
                 <p className="text-base leading-7 text-gray-600">{member.role}</p>
                 <p className="mt-6 text-base leading-7 text-gray-600">{member.bio}</p>
                 <p className="mt-6 text-base leading-7 text-gray-600">{member.bioTwo}</p>
+
                 <ul role="list" className="mt-6 flex gap-x-6">
                   <li>
                     <a href={member.githubUrl} className="text-gray-400 hover:text-[#2ECC40]">
@@ -93,6 +94,7 @@ const About = () => {
                     </a>
                   </li>
                 </ul>
+
             </div>
             </li>
              ))}
