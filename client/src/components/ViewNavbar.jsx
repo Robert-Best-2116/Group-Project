@@ -1,7 +1,24 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import axios from 'axios';
 
 const ViewNavbar = () => {
+    const { id } = useParams();
+    const [application, setApplication] = useState({});
+
+    useEffect (() => {
+      axios.get(`http://localhost:8000/api/application/${id}`)
+          .then( res => {
+              console.log(res.data);
+              setApplication(res.data);
+          }) 
+          .catch((err) => {
+              console.log(err);
+          });
+          window.scrollTo(0, 0)
+    }, []);
+
     return (
         <div className="w-screen flex items-center justify-start flex-col">
             {/* MAIN NAVBAR */}
@@ -28,7 +45,7 @@ const ViewNavbar = () => {
             <div className="w-screen flex items-center justify-around px-12 md:px-0 md:w-3/4 md:flex md:items-center md:justify-between py-4 mb-2">
                 <div className="min-w-0 flex-1 text-center md:text-left">
                     <h2 className="text-3xl font-extralight underline underline-offset-4 decoration-2 decoration-[#2ECC40] leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                       <span>Job Title </span>Posted By: <span> FirstName</span>
+                       <span className='font-[500]'>{application.jobTitle} </span>Posted By: <span className='font-[500]'> {application.userName}</span>
                     </h2>
                 </div>
 
