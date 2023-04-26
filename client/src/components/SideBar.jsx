@@ -27,7 +27,7 @@ const Sidebar = () => {
       axios.post('http://localhost:8000/api/users/logout', {}, {withCredentials: true})
           .then(res => {
               console.log(res)
-              navigate('/')
+              navigate('/loginreg')
           })
           .catch(err => console.log(err))
     }
@@ -165,7 +165,7 @@ const Sidebar = () => {
 
                 <li className="mx-auto mb-2 mt-auto w-full flex items-center justify-center">
                   {/* Log Out button will use onClick Logout handler? */}
-                  <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-3/4" onClick={logout}>Logout</button>
+                  <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-3/4 mb-4" onClick={logout}>Logout</button>
                 </li>
               </ul>
             </nav>

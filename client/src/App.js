@@ -7,17 +7,27 @@ import { useState } from "react";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
 import LoginReg from "./components/LoginReg";
+import Home from "./screen/Home";
+import About from "./components/About";
+import Register from "./components/Register";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          {/* LANDING PAGE (HOME) - JG */}
+          <Route path="/" element={<Home />} />
           {/* LOGIN AND REG PAGE BELOW - BL */}
-          <Route path="/" element={<LoginReg />} />
+          <Route path="/loginreg" element={<LoginReg />} />
+          {/* REGISTER ROUTE FOR MOBILE VIEW - JG */}
+          <Route path="/register" element={<Register />} />
+          {/* DASHBOARD PAGE - JG */}
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* Will need to implement ID in Route and on Button in card in Dashboard page*/}
-          <Route path="/view" element={<ViewPost />} />
+          {/* ABOUT PAGE - JG */}
+          <Route path="/about" element={<About />} />
+          {/* VIEW POST PAGE - JG */}
+          <Route path="/application/:id" element={<ViewPost />} />
           {/* CREATE APPLICATION PAGE BELOW - Alex */}
           <Route path="/application" element={<Create />} />
           {/* EDIT APPLICATION PAGE BELOW - Alex */}
