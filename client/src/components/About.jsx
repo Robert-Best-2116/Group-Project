@@ -14,7 +14,7 @@ const team = [
     {
         name: 'Katie Innes',
         role: 'Back-End Development',
-        imageUrl: './img/singlelogo.png',
+        imageUrl: './img/2.jpg',
         bio: `Using Robert's detailed wireframe, I kicked off the project, creating the server side of the application. After writing the code for the config, controller, model, and route files I tested it all in Postman to ensure the CRUD functions worked and to add some sample entries to the Mongo database.`,
         bioTwo: `I've worked in a variety of industries—theatre, elementary education, non-profit and for-profit marketing, and health tech—but it is that last one that sparked my interest in learning to code. I got a taste of QA work, helping to debug my company's websites on the front end, but now I'd like to use my full-stack engineering skills to become a QA engineer.`,
         linkedinUrl: 'https://www.linkedin.com/in/katharineinnes/',
