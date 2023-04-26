@@ -1,14 +1,17 @@
+// CREATED BY ALEX
+
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import CreateHeader from "./CreateHeader";
+import OptionalForm from "./OptionalForm";
 
 const Create = (props) => {
-  // PROPS, ERRORS AND SHORTCUTS
+  // PROPS, ERRORS AND SHORTCUTS - alex
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  // STATE VARIABLES FOR THE FORM
+  // STATE VARIABLES FOR THE FORM - alex
   const [jobTitle, setJobTitle] = useState("");
   const [company, setCompany] = useState("");
   const [location, setLocation] = useState("");
@@ -23,7 +26,25 @@ const Create = (props) => {
   const [userName, setUserName] = useState("TEST");
   const [userId, setUserId] = useState(12345);
 
-  // userName and userId HIDDEN INPUTS WILL BE NEEDED
+  // userName and userId HIDDEN INPUTS WILL NEED TO BE DYNAMIC
+
+  // CONDITIONAL RENDERING FOR FORM - alex
+  const showFullForm = () => {
+    if (interview === "Yes") {
+      return (
+        <OptionalForm
+          interviewer={interviewer}
+          setInterviewer={setInterviewer}
+          overview={overview}
+          setOverview={setOverview}
+          technicalInterviewer={technicalInterviewer}
+          setTechnicalInterviewer={setTechnicalInterviewer}
+          technicalOverview={technicalOverview}
+          setTechnicalOverview={setTechnicalOverview}
+        />
+      );
+    } else return "";
+  };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -50,31 +71,33 @@ const Create = (props) => {
       .catch((err) => {
         console.log(err);
         setErrors(err.response.data.err.errors);
-        // console.log(errors.jobTitle.message);
       });
   };
 
   return (
     <div className="w-screen h-auto flex items-center justify-center flex-col">
-
       <CreateHeader />
 
-      <form className="md:w-[65%] w-full h-full m-auto" onSubmit={onSubmitHandler}>
-
+      <form
+        className="md:w-[65%] w-full h-full m-auto"
+        onSubmit={onSubmitHandler}
+      >
         {errors.jobTitle ? (
           <p style={{ color: "red" }}>{errors.jobTitle.message}</p>
         ) : (
           ""
         )}
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Job Title:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={jobTitle}
-            onChange={(e) => setJobTitle(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Job Title:
+            </label>
+            <input
+              className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
+              type="text"
+              value={jobTitle}
+              onChange={(e) => setJobTitle(e.target.value)}
+            />
           </div>
         </p>
 
@@ -84,14 +107,16 @@ const Create = (props) => {
           ""
         )}
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Company:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Company:
+            </label>
+            <input
+              className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
+              type="text"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
           </div>
         </p>
 
@@ -101,26 +126,30 @@ const Create = (props) => {
           ""
         )}
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Location:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Location:
+            </label>
+            <input
+              className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
+              type="text"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
           </div>
         </p>
 
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Salary: (If Listed)</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="number"
-            value={salary}
-            onChange={(e) => setSalary(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Salary: (If Listed)
+            </label>
+            <input
+              className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
+              type="number"
+              value={salary}
+              onChange={(e) => setSalary(e.target.value)}
+            />
           </div>
         </p>
 
@@ -130,14 +159,16 @@ const Create = (props) => {
           ""
         )}
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Application Link:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={applicationLink}
-            onChange={(e) => setApplicationLink(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Application Link:
+            </label>
+            <input
+              className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
+              type="text"
+              value={applicationLink}
+              onChange={(e) => setApplicationLink(e.target.value)}
+            />
           </div>
         </p>
 
@@ -147,80 +178,44 @@ const Create = (props) => {
           ""
         )}
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Job Description:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={jobDescription}
-            onChange={(e) => setJobDescription(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Job Description:
+            </label>
+            <input
+              className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
+              type="text"
+              value={jobDescription}
+              onChange={(e) => setJobDescription(e.target.value)}
+            />
           </div>
         </p>
 
         <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Interview:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={interview}
-            onChange={(e) => setInterview(e.target.value)}
-          />
+          <div className="w-3/4 flex items-start justify-center flex-col">
+            <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">
+              Interview:
+            </label>
+            <select
+              onChange={(e) => setInterview(e.target.value)}
+              value={interview}
+            >
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
           </div>
         </p>
 
-        <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Interviewer:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={interviewer}
-            onChange={(e) => setInterviewer(e.target.value)}
-          />
-          </div>
-        </p>
+        {showFullForm()}
 
-        <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Initial Interview Overview:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={overview}
-            onChange={(e) => setOverview(e.target.value)}
-          />
-          </div>
-        </p>
-
-        <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Technical Interviewer:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={technicalInterviewer}
-            onChange={(e) => setTechnicalInterviewer(e.target.value)}
-          />
-          </div>
-        </p>
-
-        <p className="mb-2 py-4 flex items-center justify-center flex-col">
-        <div className="w-3/4 flex items-start justify-center flex-col">
-          <label className="text-[1.2rem] mr-4 mb-2 font-light underline underline-offset-2">Technical Interview Overview:</label>
-          <input
-            className="w-full md:w-full h-[3rem] pl-2 border rounded shadow-md"
-            type="text"
-            value={technicalOverview}
-            onChange={(e) => setTechnicalOverview(e.target.value)}
-          />
-          </div>
-        </p>
         <input type="hidden" value={userName} />
         <input type="hidden" value={userId} />
         <div className="w-full flex items-center justify-center flex-col">
-          <input className="transition ease-in-out delay-100 inline-flex items-center rounded-md bg-[#2ECC40af] px-6 py-3 text-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#2ECC40] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 mt-4 mb-8 cursor-pointer" type="submit" value="Submit Application" />
+          <input
+            className="transition ease-in-out delay-100 inline-flex items-center rounded-md bg-[#2ECC40af] px-6 py-3 text-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#2ECC40] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 mt-4 mb-8 cursor-pointer"
+            type="submit"
+            value="Submit Application"
+          />
         </div>
       </form>
     </div>
