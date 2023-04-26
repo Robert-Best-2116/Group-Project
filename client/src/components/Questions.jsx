@@ -6,7 +6,7 @@ const faqs = [
   {
     question: "What's Application Tracker?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "It is an easy and efficient way of keeping track of where and to whom you have sent your application and gives you the ability to update the status of your application during the interview and/or hiring process.",
   },
   {
     question: "How was Application Tracker built",
@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "Who was part of the build team?",
     answer:
-      "Alex, Brittany, Jordan, Katie, and Robert",
+      "Alex Konnaris, Brittany Lystrup, Jordan Graham, Katie Innes, and Robert Best",
   },
 ]
 

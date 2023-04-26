@@ -24,8 +24,8 @@ const team = [
         name: 'Jordan Graham',
         role: 'CSS/Styling',
         imageUrl: './img/3.png',
-        bio: 'My task in the project was to build the dashboard and view page as well as do overall styling of the application using Tailwind CSS, I also designed and styled the landing page of the application. I had prior experience working on projects as a Front-End specific developer with groups of 1-2 people, but this is my first time ever working on a project in a group of 5 people and the learning experience I gained from this project and group was outstanding.',
-        bioTwo: 'My coding journey began in January 2021, where I began to teach myself basic front-end development with Udemy and YouTube, previous to that I worked as a metal fabricator. From there I began to learn what was widely used in the industry such as React/Next.JS, Tailwind CSS, SASS, etc. Then began learning things I could offer to projects such as Three.JS and 3D Design with Blender. I would really like to find jobs where I can use my now new full-stack skill sets in either MERN or Python languages and continue learning the new and latest cool things I can apply the front-end of applications I work on.',
+        bio: 'My task in the project was to build the dashboard, view page, landing page, as well as do overall styling of the application using Tailwind CSS. The dashboard is where you will be able to view cards that display a small amount of info on every application you add and click various buttons in the side bar that will help you naviagte to other pages in the site. Then every card has a view job listing button that will take you to a full detailed run down of the job you sent your application to.',
+        bioTwo: 'My coding journey began in January 2021, where I began to teach myself basic front-end development on YouTube and Udemy, previous to that I had worked as a metal fabricator. From there I began to learn what was widely used in the industry such as React/Next.JS, Tailwind CSS, SASS, etc., which led me to the opportunity to land some small front-end specific freelance jobs. Then I began learning things I could offer to projects such as Three.JS and 3D Design with Blender and Spline. I would really like to find jobs where I can use my new full-stack skill sets in either the MERN or Python languages and continue learning the new and latest cool things I can apply to the front-end of applications I work on.',
         linkedinUrl: 'https://www.linkedin.com/in/jgwebdev38/',
         githubUrl: 'https://github.com/jgrahamwebdev',
     },
@@ -33,8 +33,8 @@ const team = [
         name: 'Brittany Lystrup',
         role: 'Login and Registration',
         imageUrl: './img/4.jpg',
-        bio: `I took on the login and registration piece, not really realizing how much of a task I had agreed to take on. I got to learn completely new code and libraries/dependencies, such as cookie-parser, .env, and jsonwebtoken, while also learning some familiar code but specifically for Express/Node, such as using bcrypt. My biggrest challenge of the whole taks was figuring out how to utilize the user's info within the application once they are registered/logged in (I have been coding in my dreams this past week trying to figure it out).`,
-        bioTwo: `My fun fact I always use is that I worked at an amusement park in southern California as a costume character for several summers in college, typically as Bugs Bunny or Wile E Coyote. Other than that, I have worked just about every front of house position in restaurants. And for the last 9 years, I have worked for Nodstrom Corporate, most recently as a Product Developer for Young Adult Women's Apparel. I am looking for a full time gig, either remote or hybrid, at a company that values its employees and a healthy work life balance. And also pays well so that I can actually buy a house in the Seattle market.`,
+        bio: `I took on the login and registration piece, not really realizing how much of a task I had agreed to take on. I got to learn completely new code and libraries/dependencies, such as cookie-parser, .env, and jsonwebtoken, while also learning some familiar code but specifically for Express/Node, such as using bcrypt. My biggrest challenge of the whole task was figuring out how to utilize the user's info within the application once they are registered/logged in (I have been coding in my dreams this past week trying to figure it out).`,
+        bioTwo: `My fun fact I always use is that I worked at an amusement park in southern California as a costume character for several summers in college, typically as Bugs Bunny or Wile E Coyote. Other than that, I have worked just about every front of house position in restaurants. And for the last 9 years, I have worked for Nordstrom Corporate, most recently as a Product Developer for Young Adult Women's Apparel. I am looking for a full time gig, either remote or hybrid, at a company that values its employees and a healthy work life balance. And also pays well so that I can actually buy a house in the Seattle market.`,
         linkedinUrl: 'https://www.linkedin.com/in/brittany-lystrup/',
         githubUrl: 'https://github.com/BLystrup',
     },
@@ -51,10 +51,11 @@ const team = [
 
 const About = () => {
     return (
-        <div className="bg-white py-24 md:py-32">
+        <div className="bg-white py-8 md:py-12">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5">
             
-            <div className="max-w-2xl xl:col-span-2">
+            <div className="max-w-2xl xl:col-span-2 shadow-md py-4 md:py-0 px-4 rounded">
+                <img className='hidden md:block mb-4 md:w-full w-full h-auto m-auto' src='/img/resume2.png' />
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About our team</h2>
                 <p className="mt-6 text-lg leading-8 text-gray-600">Application Tracker was created as the group project component for the final class of Coding Dojo's full stack engineering program.</p>
                 <div className='w-full flex items-center justify-end md:justify-start mt-4'>
@@ -63,13 +64,13 @@ const About = () => {
             </div>
 
             
-            <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3">
+            <ul role="list" className="-mt-12 space-y-12 divide-y divide-[#2ECC40] xl:col-span-3">
             {team.map((member) => (
             <li key={member.name} className="flex flex-col gap-10 pt-12 sm:flex-row">
             <div>
                 <img className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src={member.imageUrl} alt="" />
                 <h4 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{member.name}</h4>
-                <p className="text-base leading-7 text-gray-600">{member.role}</p>
+                <p className="text-base leading-7 text-[#25a734]">{member.role}</p>
                 <p className="mt-6 text-base leading-7 text-gray-600">{member.bio}</p>
                 <p className="mt-6 text-base leading-7 text-gray-600">{member.bioTwo}</p>
 
