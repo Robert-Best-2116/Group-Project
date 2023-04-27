@@ -1,11 +1,14 @@
-
+import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import { UserContext } from './UserContext';
 
 const ViewNavbar = () => {
     const { id } = useParams();
     const [application, setApplication] = useState({});
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+
 
     useEffect (() => {
       axios.get(`http://localhost:8000/api/application/${id}`)
@@ -29,7 +32,7 @@ const ViewNavbar = () => {
 
                 <div className="mt-4 flex md:ml-4 md:mt-0 items-center justify-center">
                     <h2 className="text-3xl font-extralight leading-7 text-gray-900 sm:truncate sm:text-4xl sm:tracking-tight">
-                        Welcome, FirstName
+                        Welcome, {loggedInUser.firstName}
                     </h2>
                 </div>
 

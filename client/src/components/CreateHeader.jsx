@@ -1,7 +1,12 @@
-
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
 const CreateHeader = () => {
+
+    // Bringing in the User Context variable to access the first name. - BL
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+
     return (
         <div className="w-screen h-full flex items-center justify-start flex-col">
         {/* MAIN NAVBAR */}
@@ -12,7 +17,7 @@ const CreateHeader = () => {
             </div>
 
             <div className="mt-4 flex md:ml-4 md:mt-0 items-center justify-center">
-                <h2 className="text-3xl font-extralight leading-7 text-gray-900 sm:truncate sm:text-4xl sm:tracking-tight">Welcome, FirstName</h2>
+                <h2 className="text-3xl font-extralight leading-7 text-gray-900 sm:truncate sm:text-4xl sm:tracking-tight">Welcome, {loggedInUser.firstName}</h2>
             </div>
 
             <div className='md:w-1/4 flex items-center justify-center mt-8 md:hidden'>

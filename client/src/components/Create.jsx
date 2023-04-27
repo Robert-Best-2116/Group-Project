@@ -5,11 +5,15 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import CreateHeader from "./CreateHeader";
 import OptionalForm from "./OptionalForm";
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
 
 const Create = (props) => {
   // PROPS, ERRORS AND SHORTCUTS - alex
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+  // let firstName = loggedInUser[firstName];
 
   // STATE VARIABLES FOR THE FORM - alex
   const [jobTitle, setJobTitle] = useState("");
@@ -23,8 +27,12 @@ const Create = (props) => {
   const [overview, setOverview] = useState("");
   const [technicalInterviewer, setTechnicalInterviewer] = useState("");
   const [technicalOverview, setTechnicalOverview] = useState("");
-  const [userName, setUserName] = useState("TEST");
-  const [userId, setUserId] = useState(12345);
+  //const [userName, setUserName] = useState(loggedInUser.firstName);
+  //const [userId, setUserId] = useState(`loggedInUser._id`);
+
+  //Testing Theory
+  const userName = loggedInUser.firstName;
+  const userId = loggedInUser._id;
 
   // userName and userId HIDDEN INPUTS WILL NEED TO BE DYNAMIC
 
@@ -66,6 +74,9 @@ const Create = (props) => {
       })
       .then((res) => {
         console.log(res.data);
+        console.log(userName);
+        console.log(Object.values(loggedInUser))
+        console.log(UserContext)
         navigate(`/dashboard`);
       })
       .catch((err) => {

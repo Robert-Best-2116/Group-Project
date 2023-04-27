@@ -24,8 +24,8 @@ const Edit = () => {
   const [overview, setOverview] = useState("");
   const [technicalInterviewer, setTechnicalInterviewer] = useState("");
   const [technicalOverview, setTechnicalOverview] = useState("");
-  const [userName, setUserName] = useState("TEST");
-  const [userId, setUserId] = useState(12345);
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
 
   // DELETE METHOD
   const deleteApplication = (id) => {
@@ -53,6 +53,8 @@ const Edit = () => {
         setOverview(res.data.overview);
         setTechnicalInterviewer(res.data.technicalInterviewer);
         setTechnicalOverview(res.data.technicalOverview);
+        setUserName(res.data.userName)
+        setUserId(res.data.userId)
       })
       .catch((err) => console.log(err));
     window.scrollTo(0, 0);
