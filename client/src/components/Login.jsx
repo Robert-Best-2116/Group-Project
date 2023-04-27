@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Register from './Register';
+import { UserContext } from './UserContext';
 
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
     const [user, setUser] = useState({});
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
     // SET USER WHEN INPUTS ARE ADDED TO THE FORM - BL
     const changeHandler = (e) => {
@@ -21,6 +23,8 @@ const Login = () => {
         axios.post('http://localhost:8000/api/users/login', user, {withCredentials: true})
             .then(res => {
                 console.log(res, "response")
+                setLoggedInUser(res.data.user) //++++++++
+                console.log(loggedInUser, "this is the new user");
                 navigate('/dashboard')
             })
             .catch(err => {
