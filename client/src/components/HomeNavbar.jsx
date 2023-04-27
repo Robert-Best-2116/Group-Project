@@ -1,7 +1,11 @@
-
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
 const HomeNavbar = () => {
+
+    // Bringing in the User Context variable to access the first name. - BL
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
     return (
         <div className="w-screen flex items-center justify-start flex-col">
@@ -14,10 +18,10 @@ const HomeNavbar = () => {
                 </div>
 
                 {/* FirstName Prop will need to be implemented in */}
-                {/* Example: Welcome, {firstName} */}
+                {/* Example: Welcome, {loggedInUser.firstName} */}
                 <div className="mt-4 flex md:ml-4 md:mt-0 items-center justify-center">
                     <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                        Welcome, FirstName
+                        Welcome, {loggedInUser.firstName}
                     </h2>
                 </div>
             </div> 

@@ -11,6 +11,8 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import axios from 'axios'
+import { useContext } from 'react';  //++++++++
+import { UserContext } from './UserContext'; //++++++++
 
 
 function classNames(...classes) {
@@ -21,6 +23,10 @@ const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
 
     const navigate = useNavigate();
+
+    //++++++++
+    // Bringing in the User Context variable to access the first name. - BL
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext) 
 
     // LOGOUT function added. Will remove cookie once logged out. - BL
     const logout = () => {
@@ -80,7 +86,7 @@ const Sidebar = () => {
                     {/* INTERIOR OF POPOVER */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
                     <div className="flex flex-col h-18 shrink-0 items-center justify-center">
-                        <h3 className="text-2xl font-light leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight my-4">Welcome, FirstName</h3>
+                        <h3 className="text-2xl font-light leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight my-4">Welcome, {loggedInUser.firstName}</h3>
                       
                         {/* Log Out button will use onClick Logout handler? */}
                         <button type="button" className="transition ease-in-out delay-100 inline-flex items-center justify-center rounded-md bg-[#e74d3caf] px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-[#e74c3c] hover:text-[#fff] hover:-translate-y-1 hover:scale-110 w-1/2" onClick={logout}>Logout</button>
@@ -132,7 +138,7 @@ const Sidebar = () => {
           <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
 
             <div className="flex shrink-0 items-center h-auto">
-                <h3 className="text-xl font-extralight leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight mt-8">Welcome, FirstName</h3>    
+                <h3 className="text-xl font-extralight leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight mt-8">Welcome, {loggedInUser.firstName}</h3>    
             </div>
 
             <nav className="flex flex-1 flex-col">
@@ -158,7 +164,7 @@ const Sidebar = () => {
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {/* Map for userName here: */}
                     <li className='py-2 rounded flex items-center pl-2'>
-                      <UserIcon className='h-4 w-4 mr-2'/>FirstName
+                      <UserIcon className='h-4 w-4 mr-2'/>{loggedInUser.firstName}
                     </li>
                   </ul>
                 </li>
@@ -181,7 +187,7 @@ const Sidebar = () => {
 
           <div className="flex-1 flex items-end justify-end flex-col text-sm font-semibold leading-6 text-gray-900">
             <img className='w-auto h-[4rem] mb-2' src="img/logo.png" alt="Logo" />
-            {/* <h3 className='font-light leading-7 text-gray-900 text-[1.1rem] text-center'>Welcome, FirstName</h3> */}
+            {/* <h3 className='font-light leading-7 text-gray-900 text-[1.1rem] text-center'>Welcome, {loggedInUser.firstName}</h3> */}
           </div>
 
           {/* Log Out button will use onClick Logout handler? */}

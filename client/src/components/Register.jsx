@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
+import { useContext } from 'react';  //++++++++
+import { UserContext } from './UserContext'; //++++++++
+
 
 const Register = () => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
 
     // STATE VARIABLES FOR THE FORM FOR USER - BL
@@ -28,6 +32,8 @@ const Register = () => {
             .then(res => {
                 console.log("then")
                 console.log(res)
+                setLoggedInUser(res.data.user)
+                console.log(loggedInUser, "this is the new user")
                 navigate("/dashboard")
             })
             .catch(err => {
